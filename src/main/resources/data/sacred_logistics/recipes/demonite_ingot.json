@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "sacred_logistics:raw_demonite"
+  },
+  "result": "sacred_logistics:demonite_ingot",
+  "experience": 0.4,
+  "cookingtime": 200
+}

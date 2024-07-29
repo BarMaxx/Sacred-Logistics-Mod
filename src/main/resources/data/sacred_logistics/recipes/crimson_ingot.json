@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "sacred_logistics:raw_crimson"
+  },
+  "result": "sacred_logistics:crimson_ingot",
+  "experience": 0.4,
+  "cookingtime": 200
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "sacred_logistics:raw_meteorite"
+  },
+  "result": "sacred_logistics:meteorite_ingot",
+  "experience": 0.4,
+  "cookingtime": 200
+}
