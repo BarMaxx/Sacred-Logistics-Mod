@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "sacred_logistics:item/raw_cobalt"
+  }
+}
