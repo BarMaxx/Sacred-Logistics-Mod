@@ -69,6 +69,10 @@ repositories {
     flatDir {
         dirs 'mods'
     }
+    maven {
+        name = 'Kotlin for Forge'
+        url = 'https://thedarkcolour.github.io/KotlinForForge/'
+    }
 }
 
 dependencies {
@@ -89,12 +93,7 @@ dependencies {
         }
     }
 
-    shade 'org.jetbrains:annotations:23.1.0'
-    Closure withoutAnnotations = { exclude group: 'org.jetbrains', module: 'annotations' }
-    shade "org.jetbrains.kotlin:kotlin-stdlib-jdk8", withoutAnnotations
-    shade "org.jetbrains.kotlin:kotlin-reflect", withoutAnnotations
-    shade 'org.jetbrains.kotlinx:kotlinx-serialization-core-jvm:1.7.0-RC'
-    shade 'org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.9.0-RC'
+    implementation 'thedarkcolour:kotlinforforge:3.12.0'
 
     annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
 }
