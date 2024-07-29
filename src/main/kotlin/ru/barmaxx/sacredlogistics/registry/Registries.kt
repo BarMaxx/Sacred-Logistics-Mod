@@ -66,7 +66,7 @@ object SacredBlocks {
                 .strength(5f, 8f)
         )
     }
-    val LUMITE_ORE = BLOCKS.registerOre("lumite_ore") {
+    val LUMINITE_ORE = BLOCKS.registerOre("luminite_ore") {
         Block(
             BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops()
                 .strength(5f, 8f)
