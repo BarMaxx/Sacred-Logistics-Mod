@@ -121,7 +121,7 @@ tasks.named('jar', Jar).configure {
     exclude '**/module-info.class'
 
     from { configurations.shade.collect { it.isDirectory() ? it : zipTree(it) } }
-    
+
     manifest {
         attributes([
                 "Specification-Title"     : mod_id,
