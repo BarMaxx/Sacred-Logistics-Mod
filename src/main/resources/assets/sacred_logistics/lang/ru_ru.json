@@ -1,0 +1,21 @@
+{
+  "item.sacred_logistics.chlorophyte_ingot": "Хлорофитовый слиток",
+  "item.sacred_logistics.chlorophyte_ore": "Хлорофитовая руда",
+  "item.sacred_logistics.cobalt_ingot": "Кобальтовый слиток",
+  "item.sacred_logistics.cobalt_ore": "Кобальтовая руда",
+  "item.sacred_logistics.crimson_ingot": "Кримзоновый слиток",
+  "item.sacred_logistics.crimson_ore": "Кримзоновая руда",
+  "item.sacred_logistics.deepslate_chlorophyte_ore": "Глубинная кримзоновая руда",
+  "item.sacred_logistics.demonite_ingot": "Демонитовый слиток",
+  "item.sacred_logistics.demonite_ore": "Демонитовая руда",
+  "item.sacred_logistics.luminite_ingot": "Люминитовый слиток",
+  "item.sacred_logistics.lumite_ore": "Люмитовая руда",
+  "item.sacred_logistics.meteorite_ingot": "Метеоритовый слиток",
+  "item.sacred_logistics.meteorite_ore": "Метеоритовая руда",
+  "item.sacred_logistics.raw_chlorophyte": "Необработанный хлорофит",
+  "item.sacred_logistics.raw_cobalt": "Необработанный кобальт",
+  "item.sacred_logistics.raw_crimson": "Необработанный кримзон",
+  "item.sacred_logistics.raw_demonite": "Необработанный демонит",
+  "item.sacred_logistics.raw_luminite": "Необработанный люмит",
+  "item.sacred_logistics.raw_meteorite": "Необработанный метеорит"
+}
