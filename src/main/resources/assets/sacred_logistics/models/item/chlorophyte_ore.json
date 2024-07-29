@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "sacred_logistics:block/chlorophyte_ore"
+  }
+}
