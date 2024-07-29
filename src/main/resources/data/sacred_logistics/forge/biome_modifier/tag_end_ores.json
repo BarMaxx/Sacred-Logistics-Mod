@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#is_end",
+  "features": [
+    "sacred_logistics:cobalt_ore"
+  ],
+  "step": "underground_ores"
+}

@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#is_nether",
+  "features": [
+    "sacred_logistics:crimson_ore",
+    "sacred_logistics:demonite_ore"
+  ],
+  "step": "underground_ores"
+}

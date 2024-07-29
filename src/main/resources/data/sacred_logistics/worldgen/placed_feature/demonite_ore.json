@@ -1,5 +1,5 @@
 {
-  "feature": "sacred_logistics:deepslate_chlorophyte_ore",
+  "feature": "sacred_logistics:demonite_ore",
   "placement": [
     {
       "type": "minecraft:count",
@@ -11,12 +11,12 @@
     {
       "type": "minecraft:height_range",
       "height": {
-        "type": "minecraft:trapezoid",
+        "type": "minecraft:uniform",
         "min_inclusive": {
-          "absolute": -64
+          "above_bottom": 8
         },
         "max_inclusive": {
-          "absolute": 0
+          "below_top": 8
         }
       }
     },

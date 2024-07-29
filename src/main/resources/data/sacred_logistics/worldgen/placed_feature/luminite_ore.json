@@ -1,9 +1,9 @@
 {
-  "feature": "sacred_logistics:deepslate_chlorophyte_ore",
+  "feature": "sacred_logistics:luminite_ore",
   "placement": [
     {
       "type": "minecraft:count",
-      "count": 1
+      "count": 2
     },
     {
       "type": "minecraft:in_square"
@@ -13,10 +13,10 @@
       "height": {
         "type": "minecraft:trapezoid",
         "min_inclusive": {
-          "absolute": -64
+          "absolute": -80
         },
         "max_inclusive": {
-          "absolute": 0
+          "absolute": 192
         }
       }
     },
