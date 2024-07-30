@@ -24,7 +24,6 @@ import ru.barmaxx.sacredlogistics.registry.SacredEntities
 import ru.hollowhorizon.hc.client.utils.mcTranslate
 import ru.hollowhorizon.hc.client.utils.rl
 import top.theillusivec4.curios.api.CuriosApi
-import java.util.concurrent.CompletableFuture
 import reliquary.init.ModItems as ReliquaryItems
 
 object SacredEvents {
@@ -97,7 +96,7 @@ object SacredEvents {
     fun onTrade(event: VillagerTradeEvent) {
         val profession = event.villager.villagerData.profession
         when {
-            profession == VillagerProfession.CLERIC && !event.player.hasCurio(1, ModItems.CROSS_NECKLACE.get()) -> {
+            profession == VillagerProfession.CLERIC && !event.player.hasCurio(ModItems.CROSS_NECKLACE.get()) -> {
                 event.player.sendSystemMessage("sacred_logistics.messages.cleric".mcTranslate(ModItems.CROSS_NECKLACE.get().description))
                 event.isCanceled = true
             }
@@ -123,7 +122,10 @@ object SacredEvents {
 
             event.isCanceled = !hasSpatialSign
             if (!hasSpatialSign) {
-                player.sendSystemMessage("sacred_logistics.messages.dimension".mcTranslate(ItemRegistry.SPATIAL_SIGN.get().description), true)
+                player.sendSystemMessage(
+                    "sacred_logistics.messages.dimension".mcTranslate(ItemRegistry.SPATIAL_SIGN.get().description),
+                    true
+                )
                 return
             }
 
@@ -155,21 +157,25 @@ object SacredEvents {
                 return
             }
 
-            if(event.dimension.location() == "allthemodium:the_other".rl || event.dimension.location() == "allthemodium:mining".rl) {
+            if (event.dimension.location() == "allthemodium:the_other".rl || event.dimension.location() == "allthemodium:mining".rl) {
                 val hasOtherItems = player.inventory.contains(ItemStack(ModItems.SUPERSTITIOUS_HAT.get()))
 
-                if(hasOtherItems) {
-                    player.sendSystemMessage("sacred_logistics.messages.dimension".mcTranslate(ModItems.SUPERSTITIOUS_HAT.get().description), true)
+                if (hasOtherItems) {
+                    player.sendSystemMessage(
+                        "sacred_logistics.messages.dimension".mcTranslate(ModItems.SUPERSTITIOUS_HAT.get().description),
+                        true
+                    )
                 }
             }
         }
     }
 }
 
-fun Player.hasCurio(index: Int, item: Item): Boolean {
+fun Player.hasCurio(item: Item): Boolean {
     val helper = CuriosApi.getCuriosHelper().getEquippedCurios(this)
     if (!helper.isPresent) return false
-    return helper.orElseThrow { IllegalStateException("Curio not found!") }.getStackInSlot(index).`is`(item)
+    val items = helper.orElseThrow { IllegalStateException("Curio not found!") }
+    return (0..<items.slots).any { items.getStackInSlot(it).`is`(item) }
 }
 
 

@@ -35,5 +35,5 @@
   "sacred_logistics.messages.gorgon": "§3Я не могу находится в Храме Горгоны без %s и Защитного Костюма (из Mekanism)",
   "sacred_logistics.messages.cataclysm": "§3Я не могу находится возле возле этого строения без %s.",
   "sacred_logistics.messages.nether": "§3Тут слишком жарко, мне нужна %s.",
-  "sacred_logistics.messages.end": "§3Я не могу тут находиться без %s."
+  "sacred_logistics.messages.end_structure": "§3Я не могу тут находиться без %s."
 }

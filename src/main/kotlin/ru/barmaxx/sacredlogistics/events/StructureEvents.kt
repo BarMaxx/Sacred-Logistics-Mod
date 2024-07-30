@@ -28,7 +28,7 @@ object StructureEvents {
             structures.keys.forEach {
                 when {
                     it is OceanMonumentStructure -> {
-                        val hasCharm = player.hasCurio(1, ModItems.CHARM_OF_SINKING.get())
+                        val hasCharm = player.hasCurio(ModItems.CHARM_OF_SINKING.get())
                         if (!hasCharm) {
                             player.addEffect(MobEffectInstance(MobEffects.BLINDNESS, 100, 3))
                             player.sendSystemMessage(
@@ -40,7 +40,7 @@ object StructureEvents {
                     }
 
                     it is GorgonTempleStructure -> {
-                        val hasCharm = player.hasCurio(8, ModItems.ANTIDOTE_VESSEL.get()) && (
+                        val hasCharm = player.hasCurio(ModItems.ANTIDOTE_VESSEL.get()) && (
                                 ForgeRegistries.ITEMS.getKey(player.getItemBySlot(EquipmentSlot.HEAD).item) == "mekanism:hazmat_mask".rl &&
                                         ForgeRegistries.ITEMS.getKey(player.getItemBySlot(EquipmentSlot.CHEST).item) == "mekanism:hazmat_gown".rl &&
                                         ForgeRegistries.ITEMS.getKey(player.getItemBySlot(EquipmentSlot.LEGS).item) == "mekanism:hazmat_pants".rl &&
@@ -56,7 +56,7 @@ object StructureEvents {
                     it is Burning_Arena_Structure || it is Cursed_Pyramid_Structure ||
                             it is RuinedCitadelStructure || it is SoulBlackSmithStructure ||
                             it is Sunken_City_Structure -> {
-                        val hasCharm = player.hasCurio(8, ModItems.OBSIDIAN_SKULL.get())
+                        val hasCharm = player.hasCurio(ModItems.OBSIDIAN_SKULL.get())
                         if (!hasCharm && player.tickCount % 40 == 0) {
                             player.addEffect(MobEffectInstance(MobEffects.BLINDNESS, 100, 3))
                             player.sendSystemMessage(
@@ -69,8 +69,8 @@ object StructureEvents {
 
                     it is JigsawStructure -> {
                         when {
-                            it == Structures.BASTION_REMNANT.get() || it == Structures.FORTRESS -> {
-                                val hasCharm = player.hasCurio(1, ModItems.FLAME_PENDANT.get())
+                            it == Structures.BASTION_REMNANT.get() || it == Structures.FORTRESS.get() -> {
+                                val hasCharm = player.hasCurio(ModItems.FLAME_PENDANT.get())
                                 if (!hasCharm && player.tickCount % 100 == 0) {
                                     player.addEffect(MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 1))
                                     player.sendSystemMessage(
@@ -86,7 +86,7 @@ object StructureEvents {
                                 if (!hasCharm && player.tickCount % 100 == 0) {
                                     player.addEffect(MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 1))
                                     player.sendSystemMessage(
-                                        "sacred_logistics.messages.end".mcTranslate(ItemRegistry.SPACE_DISSECTOR.get().description),
+                                        "sacred_logistics.messages.end_structure".mcTranslate(ItemRegistry.SPACE_DISSECTOR.get().description),
                                         true
                                     )
                                     player.setSecondsOnFire(10)

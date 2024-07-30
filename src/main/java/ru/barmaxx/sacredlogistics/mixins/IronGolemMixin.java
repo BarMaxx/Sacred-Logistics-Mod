@@ -18,7 +18,7 @@ public class IronGolemMixin {
         var mob = (IronGolem) (Object) this;
         mob.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(mob, Player.class, 10, true, false, entity -> {
             if (entity instanceof Player player) {
-                var hasHat = player.getInventory().contains(new ItemStack(ModItems.VILLAGER_HAT.get())) || SacredEventsKt.hasCurio(player, 0, ModItems.VILLAGER_HAT.get());
+                var hasHat = player.getInventory().contains(new ItemStack(ModItems.VILLAGER_HAT.get())) || SacredEventsKt.hasCurio(player, ModItems.VILLAGER_HAT.get());
 
                 return !hasHat;
             }
