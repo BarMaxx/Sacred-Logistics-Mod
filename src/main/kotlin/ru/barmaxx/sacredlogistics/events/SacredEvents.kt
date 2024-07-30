@@ -93,7 +93,7 @@ fun blockSwimming(player: Player): Boolean {
                 player.setDeltaMovement(player.deltaMovement.x, -0.1, player.deltaMovement.z)
             }
         }
-        if (showMessage) {
+        if (showMessage && swimTime > 20) {
             player.sendSystemMessage("sacred_logistics.messages.swim".mcTranslate)
             showMessage = false
         }
