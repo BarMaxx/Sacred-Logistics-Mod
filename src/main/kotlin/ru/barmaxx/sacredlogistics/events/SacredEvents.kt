@@ -64,6 +64,8 @@ object SacredEvents {
             meteorite.xPower = 0.01
             meteorite.yPower = -0.2
             meteorite.zPower = 0.01
+
+            event.player.persistentData.putInt("meteorite_count", meteorCount+1)
         }
     }
 }
