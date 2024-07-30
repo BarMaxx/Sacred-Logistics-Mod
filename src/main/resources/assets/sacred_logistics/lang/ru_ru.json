@@ -24,5 +24,10 @@
   "sacred_logistics.messages.swim": "§3Я не умею плавать без ласт... Нужно побыстрее выбираться отсюда, пока я не захлебнулся.",
   "sacred_logistics.messages.fire": "§3Чёрт, тут так горячо... Мне нужна огненная рукавица.",
   "sacred_logistics.messages.cleric": "[Житель] Я не вижу на тебе %s, я не буду с тобой торговать без него!",
-  "sacred_logistics.messages.farmer": "[Житель] я не буду с тобой торговать пока у тебя нет с собой %s!"
+  "sacred_logistics.messages.farmer": "[Житель] я не буду с тобой торговать пока у тебя нет с собой %s!",
+  "sacred_logistics.messages.dimension": "§3Я не могу перемещаться между мирами без %s!",
+  "sacred_logistics.messages.end": "§3Я не могу пойти в Край без %s, %s и %s!",
+  "sacred_logistics.messages.boss_kill": "§3Похоже мир меняется... Теперь Вам доступны новые ресурсы.",
+  "sacred_logistics.messages.wither": "§3Я не могу призвать Визера без Светящийся Воды.",
+  "sacred_logistics.messages.coin": "§3Я не полечу на другие планеты без Монетки Фортуны!"
 }

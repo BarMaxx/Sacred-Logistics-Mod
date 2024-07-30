@@ -1,6 +1,7 @@
 package ru.barmaxx.sacredlogistics.events
 
 import artifacts.common.init.ModItems
+import it.hurts.sskirillss.relics.init.ItemRegistry
 import net.darkhax.gamestages.GameStageHelper
 import net.minecraft.network.chat.Component
 import net.minecraft.server.level.ServerPlayer
@@ -11,15 +12,19 @@ import net.minecraft.world.item.ItemStack
 import net.minecraft.world.level.Level
 import net.minecraftforge.event.TickEvent
 import net.minecraftforge.event.TickEvent.PlayerTickEvent
+import net.minecraftforge.event.entity.EntityTravelToDimensionEvent
 import net.minecraftforge.event.entity.living.LivingDeathEvent
 import net.minecraftforge.eventbus.api.SubscribeEvent
+import net.minecraftforge.fml.ModList
 import net.minecraftforge.registries.ForgeRegistries
 import reliquary.init.ModBlocks
 import ru.barmaxx.sacredlogistics.SacredLogistics
 import ru.barmaxx.sacredlogistics.entities.MeteoriteEntity
 import ru.barmaxx.sacredlogistics.registry.SacredEntities
 import ru.hollowhorizon.hc.client.utils.mcTranslate
+import ru.hollowhorizon.hc.client.utils.rl
 import top.theillusivec4.curios.api.CuriosApi
+import java.util.concurrent.CompletableFuture
 import reliquary.init.ModItems as ReliquaryItems
 
 object SacredEvents {
@@ -33,7 +38,7 @@ object SacredEvents {
 
                 fun checkAndAdd(entity: String, stage: String) {
                     if (type == entity && !GameStageHelper.hasStage(source, stage)) {
-                        SacredLogistics.LOGGER.info("Player ${source.name.string} unlocked $stage!")
+                        source.sendSystemMessage("sacred_logistics.messages.boss_kill".mcTranslate)
                         GameStageHelper.addStage(source as? ServerPlayer ?: return, stage)
                     }
                 }
@@ -106,6 +111,56 @@ object SacredEvents {
                     event.player.inventory.contains(ItemStack(ReliquaryItems.MIDAS_TOUCHSTONE.get())) -> {
                 event.player.sendSystemMessage("sacred_logistics.messages.farmer".mcTranslate(ReliquaryItems.MIDAS_TOUCHSTONE.get().description))
                 event.isCanceled = true
+            }
+        }
+    }
+
+    @SubscribeEvent
+    fun onChangeDimension(event: EntityTravelToDimensionEvent) {
+        if (event.entity is ServerPlayer) {
+            val player = event.entity as ServerPlayer
+            val hasSpatialSign = player.inventory.contains(ItemStack(ItemRegistry.SPATIAL_SIGN.get()))
+
+            event.isCanceled = !hasSpatialSign
+            if (!hasSpatialSign) {
+                player.sendSystemMessage("sacred_logistics.messages.dimension".mcTranslate(ItemRegistry.SPATIAL_SIGN.get().description), true)
+                return
+            }
+
+            val hasReliquary = ModList.get().isLoaded("reliquary")
+            val hasEndItems =
+                (!hasReliquary || player.inventory.contains(ItemStack(ReliquaryItems.HERO_MEDALLION.get())))
+                        && (!hasReliquary || player.inventory.contains(ItemStack(ReliquaryItems.ANGELIC_FEATHER.get())))
+                        && player.inventory.contains(ItemStack(ItemRegistry.ENDER_HAND.get()))
+
+            if (!hasEndItems && event.dimension == Level.END) {
+                if (hasReliquary) {
+                    player.sendSystemMessage(
+                        "sacred_logistics.messages.end".mcTranslate(
+                            ReliquaryItems.HERO_MEDALLION.get().description,
+                            ReliquaryItems.ANGELIC_FEATHER.get().description,
+                            ItemRegistry.ENDER_HAND.get().description
+                        ), true
+                    )
+                } else {
+                    player.sendSystemMessage(
+                        "sacred_logistics.messages.end".mcTranslate(
+                            ItemRegistry.ENDER_HAND.get().description,
+                            ItemRegistry.ENDER_HAND.get().description,
+                            ItemRegistry.ENDER_HAND.get().description
+                        ), true
+                    )
+                }
+                event.isCanceled = true
+                return
+            }
+
+            if(event.dimension.location() == "allthemodium:the_other".rl) {
+                val hasOtherItems = player.inventory.contains(ItemStack(ModItems.SUPERSTITIOUS_HAT.get()))
+
+                if(hasOtherItems) {
+                    player.sendSystemMessage("sacred_logistics.messages.dimension".mcTranslate(ModItems.SUPERSTITIOUS_HAT.get().description), true)
+                }
             }
         }
     }
