@@ -28,6 +28,12 @@
   "sacred_logistics.messages.dimension": "§3Я не могу перемещаться между мирами без %s!",
   "sacred_logistics.messages.end": "§3Я не могу пойти в Край без %s, %s и %s!",
   "sacred_logistics.messages.boss_kill": "§3Похоже мир меняется... Теперь Вам доступны новые ресурсы.",
-  "sacred_logistics.messages.wither": "§3Я не могу призвать Визера без Светящийся Воды.",
-  "sacred_logistics.messages.coin": "§3Я не полечу на другие планеты без Монетки Фортуны!"
+  "sacred_logistics.messages.wither": "§3Я не могу призвать Визера без Светящейся Воды.",
+  "sacred_logistics.messages.coin": "§3Я не полечу на другие планеты без Монетки Фортуны!",
+  "sacred_logistics.messages.raid": "§3Рейд не может быть начат без сумеречного плаща.",
+  "sacred_logistics.messages.monument": "§3Я не могу находится возле подводного Монумента без %s.",
+  "sacred_logistics.messages.gorgon": "§3Я не могу находится в Храме Горгоны без %s и Защитного Костюма (из Mekanism)",
+  "sacred_logistics.messages.cataclysm": "§3Я не могу находится возле возле этого строения без %s.",
+  "sacred_logistics.messages.nether": "§3Тут слишком жарко, мне нужна %s.",
+  "sacred_logistics.messages.end": "§3Я не могу тут находиться без %s."
 }

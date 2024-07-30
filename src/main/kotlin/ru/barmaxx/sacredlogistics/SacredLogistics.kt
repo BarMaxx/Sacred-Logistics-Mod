@@ -9,6 +9,7 @@ import org.apache.logging.log4j.LogManager
 import ru.barmaxx.sacredlogistics.entities.MeteoriteEntity
 import ru.barmaxx.sacredlogistics.entities.MeteoriteRenderer
 import ru.barmaxx.sacredlogistics.events.SacredEvents
+import ru.barmaxx.sacredlogistics.events.StructureEvents
 import ru.barmaxx.sacredlogistics.registry.SacredBlocks
 import ru.barmaxx.sacredlogistics.registry.SacredEntities
 import ru.barmaxx.sacredlogistics.registry.SacredItems
@@ -17,6 +18,7 @@ import ru.barmaxx.sacredlogistics.registry.SacredItems
 class SacredLogistics {
     init {
         MinecraftForge.EVENT_BUS.register(SacredEvents)
+        MinecraftForge.EVENT_BUS.register(StructureEvents)
         SacredBlocks.BLOCKS.register(FMLJavaModLoadingContext.get().modEventBus)
         SacredItems.ITEMS.register(FMLJavaModLoadingContext.get().modEventBus)
         SacredEntities.ENTITIES.register(FMLJavaModLoadingContext.get().modEventBus)

@@ -10,7 +10,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import ru.barmaxx.sacredlogistics.events.VillagerTradeEvent;
 
 @Mixin(Villager.class)
-public class VillagerMixin {
+public abstract class VillagerMixin {
+
     @Inject(method = "startTrading", at = @At("HEAD"), cancellable = true)
     private void onTrade(Player p_35537_, CallbackInfo ci) {
         var event = new VillagerTradeEvent(p_35537_, (Villager) (Object) this);

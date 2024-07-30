@@ -155,7 +155,7 @@ object SacredEvents {
                 return
             }
 
-            if(event.dimension.location() == "allthemodium:the_other".rl) {
+            if(event.dimension.location() == "allthemodium:the_other".rl || event.dimension.location() == "allthemodium:mining".rl) {
                 val hasOtherItems = player.inventory.contains(ItemStack(ModItems.SUPERSTITIOUS_HAT.get()))
 
                 if(hasOtherItems) {
