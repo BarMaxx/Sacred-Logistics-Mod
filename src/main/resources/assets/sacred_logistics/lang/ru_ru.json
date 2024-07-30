@@ -20,5 +20,7 @@
   "item.sacred_logistics.raw_luminite": "Необработанный люмит",
   "item.sacred_logistics.raw_meteorite": "Необработанный метеорит",
 
-  "sacred_logistics.messages.meteorite": "§3Похоже где-то падает метеорит..."
+  "sacred_logistics.messages.meteorite": "§3Похоже где-то падает метеорит...",
+  "sacred_logistics.messages.swim": "§3Чёрт, я же не умею плавать без ласт...",
+  "sacred_logistics.messages.fire": "§3Чёрт, тут так горячо... Мне нужна огненная рукавица."
 }

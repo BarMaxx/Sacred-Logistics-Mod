@@ -159,7 +159,7 @@ shadowJar {
     ]
 
     shadowPackages.forEach {
-        relocate(it, "sacred_repack.$it")
+        //relocate(it, "sacred_repack.$it")
     }
 
     mergeServiceFiles()
