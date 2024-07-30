@@ -6,7 +6,8 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "PlayerMixin",
-    "StageContainerMixin"
+    "StageContainerMixin",
+    "VillagerMixin"
   ],
   "client": [],
   "server": [],

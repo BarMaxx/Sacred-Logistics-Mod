@@ -86,9 +86,15 @@ dependencies {
             def modreference = "lib:$modartifact:$modversion"
 
             dependencies {
-                implementation fg.deobf(project.dependencies.create(modreference) {
-                    transitive = false
-                })
+                if(modreference.contains("reliquary")) {
+                    compileOnly fg.deobf(project.dependencies.create(modreference) {
+                        transitive = false
+                    })
+                } else {
+                    implementation fg.deobf(project.dependencies.create(modreference) {
+                        transitive = false
+                    })
+                }
             }
         }
     }
