@@ -1,5 +1,7 @@
 package ru.barmaxx.sacredlogistics.registry
 
+import net.minecraft.world.entity.EntityType
+import net.minecraft.world.entity.MobCategory
 import net.minecraft.world.item.BlockItem
 import net.minecraft.world.item.CreativeModeTab
 import net.minecraft.world.item.Item
@@ -11,6 +13,7 @@ import net.minecraftforge.registries.DeferredRegister
 import net.minecraftforge.registries.ForgeRegistries
 import net.minecraftforge.registries.RegistryObject
 import ru.barmaxx.sacredlogistics.SacredLogistics
+import ru.barmaxx.sacredlogistics.entities.MeteoriteEntity
 
 
 object SacredItems {
@@ -77,6 +80,14 @@ object SacredBlocks {
             BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops()
                 .strength(5f, 8f)
         )
+    }
+}
+
+object SacredEntities {
+    val ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, SacredLogistics.MODID)
+
+    val METEORITE = ENTITIES.register("meteorite") {
+        EntityType.Builder.of(::MeteoriteEntity, MobCategory.MISC).sized(2f, 2f).build("meteorite")
     }
 }
 

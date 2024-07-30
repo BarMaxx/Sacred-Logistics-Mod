@@ -18,5 +18,7 @@
   "item.sacred_logistics.raw_crimson": "Необработанный багрянец",
   "item.sacred_logistics.raw_demonite": "Необработанный демонит",
   "item.sacred_logistics.raw_luminite": "Необработанный люмит",
-  "item.sacred_logistics.raw_meteorite": "Необработанный метеорит"
+  "item.sacred_logistics.raw_meteorite": "Необработанный метеорит",
+
+  "sacred_logistics.messages.meteorite": "§3Похоже где-то падает метеорит..."
 }
