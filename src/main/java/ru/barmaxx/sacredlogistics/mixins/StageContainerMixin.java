@@ -19,5 +19,6 @@ public class StageContainerMixin {
         StageContainer.getOrCreateBlock(SacredLogistics.MODID + ":demonite_and_crimson", SacredBlocks.INSTANCE.getCRIMSON_ORE().get().defaultBlockState(), null, Blocks.NETHERRACK.defaultBlockState(), false);
         StageContainer.getOrCreateBlock(SacredLogistics.MODID + ":cobalt_ore", SacredBlocks.INSTANCE.getCOBALT_ORE().get().defaultBlockState(), null, Blocks.END_STONE.defaultBlockState(), false);
         StageContainer.getOrCreateBlock(SacredLogistics.MODID + ":chlorophyte_ore", SacredBlocks.INSTANCE.getCHLOROPHYTE_ORE().get().defaultBlockState(), null, Blocks.STONE.defaultBlockState(), false);
+        StageContainer.getOrCreateBlock(SacredLogistics.MODID + ":chlorophyte_ore", SacredBlocks.INSTANCE.getDEEPSLATE_CHLOROPHYTE_ORE().get().defaultBlockState(), null, Blocks.STONE.defaultBlockState(), false);
     }
 }
