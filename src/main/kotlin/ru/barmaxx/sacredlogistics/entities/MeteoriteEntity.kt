@@ -35,16 +35,17 @@ class MeteoriteEntity(type: EntityType<MeteoriteEntity>, level: Level) : Abstrac
                     ).subtract(Vec3(x.toDouble(), y.toDouble(), z.toDouble())).length()
 
                     var state = ForgeRegistries.BLOCKS.tags()
-                        ?.getTag(TagKey.create(ForgeRegistries.BLOCKS.registryKey, "forge:ores_in_ground/stone".rl))?.stream()
-                        ?.collect(Collectors.toList())?.randomOrNull()?.defaultBlockState()
+                        ?.getTag(TagKey.create(ForgeRegistries.BLOCKS.registryKey, "forge:ores_in_ground/stone".rl))
+                        ?.stream()?.collect(Collectors.toList())?.randomOrNull()?.defaultBlockState()
                         ?: Blocks.IRON_ORE.defaultBlockState()
 
-                    if (random.nextBoolean()) state = SacredBlocks.METEORITE_ORE.get().defaultBlockState()
+                    if (random.nextBoolean()) {
+                        state = if (random.nextBoolean()) SacredBlocks.METEORITE_ORE.get().defaultBlockState()
+                        else ForgeRegistries.BLOCKS.getValue("assemblylinemachines:black_granite".rl)!!
+                            .defaultBlockState()
+                    }
 
-                    if (len < 3) level.setBlockAndUpdate(
-                        BlockPos(x, y, z),
-                        state
-                    )
+                    if (len < 3) level.setBlockAndUpdate(BlockPos(x, y, z), state)
                 }
             }
         }
