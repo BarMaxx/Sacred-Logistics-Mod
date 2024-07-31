@@ -183,12 +183,8 @@ var showMessage = false
 fun blockSwimming(player: Player): Boolean {
     val curios = CuriosApi.getCuriosHelper().getEquippedCurios(player)
     val swimTime = player.persistentData.getInt("swim_time")
-    val hasFlippes =
-        curios.isPresent && curios.orElseThrow { NullPointerException("Curios API not initialized!") }
-            .getStackInSlot(9)
-            .`is`(ModItems.FLIPPERS.get())
 
-    if (player.isInWater && !hasFlippes) {
+    if (player.isInWater && !player.hasCurio(ModItems.FLIPPERS.get())) {
         if (curios.isPresent && swimTime >= 200) {
             player.setDeltaMovement(player.deltaMovement.x, -0.1, player.deltaMovement.z)
         }
