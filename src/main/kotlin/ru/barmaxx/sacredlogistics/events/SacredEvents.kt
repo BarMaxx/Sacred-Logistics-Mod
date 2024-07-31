@@ -57,7 +57,6 @@ object SacredEvents {
         if (event.phase == TickEvent.Phase.START) return
 
         val player = event.player
-        val curios = CuriosApi.getCuriosHelper().getEquippedCurios(player)
         val meteorCount = player.persistentData.getInt("meteorite_count")
 
         val interval = when {
@@ -84,8 +83,8 @@ object SacredEvents {
             player.persistentData.putInt("meteorite_count", meteorCount + 1)
         }
 
-        if (player.level.dimension() == Level.NETHER) curios.ifPresent {
-            if (player.tickCount % (20 * 15) == 0 && !it.getStackInSlot(4).`is`(ModItems.FIRE_GAUNTLET.get())) {
+        if (player.level.dimension() == Level.NETHER) {
+            if (player.tickCount % (20 * 15) == 0 && !player.hasCurio(ModItems.FIRE_GAUNTLET.get())) {
                 player.setSecondsOnFire(5)
                 player.sendSystemMessage("sacred_logistics.messages.fire".mcTranslate)
             }
@@ -181,11 +180,10 @@ fun Player.hasCurio(item: Item): Boolean {
 
 var showMessage = false
 fun blockSwimming(player: Player): Boolean {
-    val curios = CuriosApi.getCuriosHelper().getEquippedCurios(player)
     val swimTime = player.persistentData.getInt("swim_time")
 
     if (player.isInWater && !player.hasCurio(ModItems.FLIPPERS.get())) {
-        if (curios.isPresent && swimTime >= 200) {
+        if (swimTime >= 200) {
             player.setDeltaMovement(player.deltaMovement.x, -0.1, player.deltaMovement.z)
         }
         if (showMessage && swimTime > 50) {
