@@ -33,7 +33,6 @@ object SacredEvents {
             if (source is Player) {
                 val entity = event.entity
                 val type = ForgeRegistries.ENTITY_TYPES.getKey(entity.type)?.toString() ?: return@let
-                source.sendSystemMessage(Component.literal("You killed ${event.entity.name.string}"))
 
                 fun checkAndAdd(entity: String, stage: String) {
                     if (type == entity && !GameStageHelper.hasStage(source, stage)) {
