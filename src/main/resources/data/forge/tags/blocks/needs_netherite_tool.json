@@ -4,7 +4,6 @@
     "sacred_logistics:cobalt_ore",
     "sacred_logistics:crimson_ore",
     "sacred_logistics:demonite_ore",
-    "sacred_logistics:luminite_ore",
-    "sacred_logistics:meteorite_ore"
+    "sacred_logistics:luminite_ore"
   ]
 }

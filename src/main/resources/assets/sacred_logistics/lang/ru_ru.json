@@ -21,6 +21,7 @@
   "item.sacred_logistics.raw_meteorite": "Необработанный метеорит",
 
   "sacred_logistics.messages.meteorite": "§3Похоже где-то падает метеорит...",
+  "sacred_logistics.messages.meteorite_charm": "§3Похоже оберег от метеоритов сработал! Падение метеорита отменено. Ты в безопасности... пока.",
   "sacred_logistics.messages.swim": "§3Я не умею плавать без ласт... Нужно побыстрее выбираться отсюда, пока я не захлебнулся.",
   "sacred_logistics.messages.fire": "§3Чёрт, тут так горячо... Мне нужна огненная рукавица.",
   "sacred_logistics.messages.cleric": "[Житель] Я не вижу на тебе %s, я не буду с тобой торговать без него!",

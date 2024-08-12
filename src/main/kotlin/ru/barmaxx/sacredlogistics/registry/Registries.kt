@@ -19,6 +19,7 @@ import ru.barmaxx.sacredlogistics.entities.MeteoriteEntity
 object SacredItems {
     val ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, SacredLogistics.MODID)
 
+    val METEORITE_CHARM = ITEMS.register("meteorite_charm") { Item(Item.Properties().tab(SACRED_TAB).stacksTo(1)) }
     val CHLOROPHYTE_INGOT = ITEMS.register("chlorophyte_ingot") { Item(Item.Properties().tab(SACRED_TAB)) }
     val COBALT_INGOT = ITEMS.register("cobalt_ingot") { Item(Item.Properties().tab(SACRED_TAB)) }
     val CRIMSON_INGOT = ITEMS.register("crimson_ingot") { Item(Item.Properties().tab(SACRED_TAB)) }

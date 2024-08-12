@@ -23,6 +23,7 @@ import reliquary.init.ModBlocks
 import ru.barmaxx.sacredlogistics.SacredLogistics
 import ru.barmaxx.sacredlogistics.entities.MeteoriteEntity
 import ru.barmaxx.sacredlogistics.registry.SacredEntities
+import ru.barmaxx.sacredlogistics.registry.SacredItems
 import ru.hollowhorizon.hc.client.utils.mcTranslate
 import ru.hollowhorizon.hc.client.utils.rl
 import top.theillusivec4.curios.api.CuriosApi
@@ -70,8 +71,13 @@ object SacredEvents {
         if (player.level.gameTime % interval == 0L && player.level.dimension().location()
                 .toString() == "minecraft:overworld"
         ) {
+            if(player.inventory.contains(ItemStack(SacredItems.METEORITE_CHARM.get()))) {
+                player.sendSystemMessage("sacred_logistics.messages.meteorite_charm".mcTranslate)
+                return
+            } else {
+                player.sendSystemMessage("sacred_logistics.messages.meteorite".mcTranslate)
+            }
             val pos = player.blockPosition().mutable().setY(player.level.maxBuildHeight)
-            player.sendSystemMessage("sacred_logistics.messages.meteorite".mcTranslate)
 
             val meteorite = MeteoriteEntity(SacredEntities.METEORITE.get(), player.level)
             meteorite.setPos(pos.x.toDouble(), pos.y.toDouble(), pos.z.toDouble())
