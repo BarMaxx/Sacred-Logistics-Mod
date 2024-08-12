@@ -85,7 +85,7 @@ object SacredEvents {
         }
 
         if (player.level.dimension() == Level.NETHER) {
-            if (player.tickCount % (20 * 15) == 0 && !player.hasCurio(ModItems.FIRE_GAUNTLET.get())) {
+            if (player.tickCount % (20 * 30) == 0 && !player.hasCurio(ModItems.FIRE_GAUNTLET.get())) {
                 player.setSecondsOnFire(5)
                 player.sendSystemMessage("sacred_logistics.messages.fire".mcTranslate)
             }
