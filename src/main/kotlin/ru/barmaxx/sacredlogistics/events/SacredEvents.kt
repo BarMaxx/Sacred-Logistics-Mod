@@ -5,6 +5,8 @@ import it.hurts.sskirillss.relics.init.ItemRegistry
 import net.darkhax.gamestages.GameStageHelper
 import net.minecraft.network.chat.Component
 import net.minecraft.server.level.ServerPlayer
+import net.minecraft.world.effect.MobEffectInstance
+import net.minecraft.world.effect.MobEffects
 import net.minecraft.world.entity.npc.VillagerProfession
 import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.Item
@@ -88,6 +90,12 @@ object SacredEvents {
                 player.sendSystemMessage("sacred_logistics.messages.fire".mcTranslate)
             }
         }
+
+        if(player.level.dimension() == Level.END) {
+            if(player.tickCount % 40 == 0 && !player.inventory.contains(ItemStack(ItemRegistry.ENDER_HAND.get()))) {
+                player.addEffect(MobEffectInstance(MobEffects.DIG_SLOWDOWN, 20, 1))
+            }
+        }
     }
 
     @SubscribeEvent
@@ -131,7 +139,6 @@ object SacredEvents {
             val hasEndItems =
                 (!hasReliquary || player.inventory.contains(ItemStack(ReliquaryItems.HERO_MEDALLION.get())))
                         && (!hasReliquary || player.inventory.contains(ItemStack(ReliquaryItems.ANGELIC_FEATHER.get())))
-                        && player.inventory.contains(ItemStack(ItemRegistry.ENDER_HAND.get()))
 
             if (!hasEndItems && event.dimension == Level.END) {
                 if (hasReliquary) {
